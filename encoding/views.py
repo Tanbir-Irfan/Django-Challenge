@@ -1,9 +1,10 @@
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponse
+from django.http.request import HttpRequest
 from django.shortcuts import redirect, render
 
 from encoding.input import EncodedForm
 import json
-def home(request):
+def home(request: HttpRequest)-> HttpResponse:
     if request.method == 'POST':
         form = EncodedForm(request.POST, auto_id=True)
         if form.is_valid(): 
