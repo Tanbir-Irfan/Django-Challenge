@@ -4,5 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY requirements.txt /app/
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt && \
+    pip3 install -U mypy && \
+    pip3 install django-stubs 
 COPY . /app/
