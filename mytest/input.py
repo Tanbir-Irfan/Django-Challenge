@@ -4,7 +4,7 @@ import re
 class EncodedForm(forms.Form):
     encoded_string = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     
-    def clean_encoded_string(self)->int:
+    def clean_encoded_string(self)->str:
         data = self.cleaned_data['encoded_string']
         if data == "": # check emptiness of the passing argument value
             raise forms.ValidationError("The input can not be empty")
